@@ -1,0 +1,51 @@
+{
+  "name": "gtdxyz/flarum-ui-dev",
+  "description": "",
+  "type": "flarum-extension",
+  "license": "MIT",
+  "homepage": "https://dev.gtd.xyz/",
+  "keywords": [
+    "flarum",
+    "extension"
+  ],
+  "authors": [
+    {
+      "name": "GTD",
+      "email": "i@dev.gtd.xyz",
+      "homepage": "https://dev.gtd.xyz/",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "source": "https://github.com/daocatt/flarum-ui-dev",
+    "issues": "https://github.com/daocatt/flarum-ui-dev",
+    "docs": "https://github.com/daocatt/flarum-ui-dev/wiki",
+    "forum": "https://github.com/daocatt/flarum-ui-dev/discussions"
+  },
+  "require": {
+    "flarum/core": "^1.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "Gtdxyz\\Uidev\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "flarum-extension": {
+      "title": "",
+      "category": "",
+      "info": {
+        "website": "https://dev.gtd.xyz/",
+        "support": "https://github.com/daocatt/flarum-ui-dev/discussions"
+      },
+      "icon": {
+        "name": "fas fa-pencil-ruler",
+        "backgroundColor": "#ffffff",
+        "backgroundSize": "cover",
+        "backgroundPosition": "center"
+      }
+    }
+  }
+}

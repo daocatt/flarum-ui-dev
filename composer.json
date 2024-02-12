@@ -34,8 +34,8 @@
   "prefer-stable": true,
   "extra": {
     "flarum-extension": {
-      "title": "",
-      "category": "",
+      "title": "GTD UI",
+      "category": "feature",
       "info": {
         "website": "https://dev.gtd.xyz/",
         "support": "https://github.com/daocatt/flarum-ui-dev/discussions"

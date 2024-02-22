@@ -1,10 +1,23 @@
+:root{
+    --dev-body-bg:#e5e5e5;
+    --dev-box-bg:#ffffff;
+    --dev-box-border-radius: 2px;
+    --dev-box-border-color:rgba(225,225,225,1);
+
+    --dev-color-green: #3dac78;
+    --dev-discussion-hover-bg: #f8f8f6;
+}
+
+body{
+    background: var(--dev-body-bg);
+}
 .App-content{
     padding-top:15px;
 }
 .Hero{
     background:transparent !important;
     text-align:left;
-    // color:#232323;
+    color:#232323;
     margin-bottom:10px;
 }
 .Button--tagColored{
@@ -13,15 +26,120 @@
     --button-primary-bg-hover: inherit;
     --button-primary-bg-active: inherit;
 }
+
+.IndexPage-results{
+    background: var(--dev-box-bg);
+    border-radius: var(--dev-box-border-radius);
+    box-shadow: 0 2px 3px rgba(0,0,0,.1);
+    border-bottom: 1px solid var(--dev-box-border-color);
+    padding:15px 15px;
+    min-height:500px;
+}
+
 .sideNav{
     margin-left: 50px;
     order: 1;
     margin-right:0;
 }
+.UserPage-nav{
+    order:0;
+    margin-left:0;
+    margin-right:50px;
+}
 .TagsPage .sideNav{
     margin-left:0;
 }
+
+.DiscussionHero .TagsLabel .TagLabel.colored, .DiscussionHero .TagsLabel .TagLabel--colored{
+    background: rgba(150,150,150,0.2);
+}
+.DiscussionHero--colored,.DiscussionHero--colored a{
+    color:#232323;
+}
+
+.containerNarrow{
+    max-width:100%;
+}
+
+.DiscussionListItem .DiscussionListItem-content{
+    border-bottom:1px solid #eee;
+}
+
+.DiscussionListItem:hover .DiscussionListItem-title{
+    color:var(--dev-color-green);
+}
+.DiscussionList:not(.DiscussionList--searchResults) .DiscussionListItem:hover .read .DiscussionListItem-title{
+    color:var(--dev-color-green);
+}
+
+.DiscussionListItem-info .username{
+    font-weight:normal;
+}
+
+.DiscussionPage-thread{
+    background:#fff;
+    border-radius: var(--dev-box-border-radius);
+    box-shadow: 0 2px 3px rgba(0,0,0,.1);
+    border-bottom: 1px solid var(--dev-box-border-color);
+    padding:15px 15px;
+    margin-bottom:15px;
+}
+
+.DiscussionPage-comments{
+    background:#fff;
+    border-radius: var(--dev-box-border-radius);
+    box-shadow: 0 2px 3px rgba(0,0,0,.1);
+    border-bottom: 1px solid var(--dev-box-border-color);
+    padding:15px 15px;
+}
+
+.PostUser h3,.PostUser h3 a,.PostUser .PostUser-name,.PostUser .PostUser-name a{
+    font-weight:normal;
+}
+
+.UserPage{
+    margin-top:-15px;
+    .UserCard{
+        
+        .darkenBackground{
+            background:#ffffff !important;
+            border-radius: var(--dev-box-border-radius);
+            box-shadow: 0 2px 3px rgba(0,0,0,.1);
+            border-bottom: 1px solid var(--dev-box-border-color);
+            padding:15px 15px;
+            color:#232323;
+        }
+        .UserCard-avatar{
+            .Avatar{
+                --size: 96px;
+                border: 4px solid #eee;
+                box-shadow: 0 4px 6px var(--shadow-color) inset;
+            }
+        }
+    }
+    .PostsUserPage-list{
+        background:#ffffff !important;
+        border-radius: var(--dev-box-border-radius);
+        box-shadow: 0 2px 3px rgba(0,0,0,.1);
+        border-bottom: 1px solid var(--dev-box-border-color);
+        padding:15px 15px;
+        >li{
+            border-bottom:1px solid #eee;
+        }
+    }
+    .DiscussionsUserPage{
+        background:#ffffff !important;
+        border-radius: var(--dev-box-border-radius);
+        box-shadow: 0 2px 3px rgba(0,0,0,.1);
+        border-bottom: 1px solid var(--dev-box-border-color);
+        padding:15px 15px;
+    }
+}
+
 @media (max-width: 767.98px){
+    .App-content{
+        background:transparent;
+    }
     .Hero .container{
         padding-top: 0px;
         padding-bottom: 0px;
@@ -31,33 +149,73 @@
         padding: 0 0 15px;
         width:100%;
     }
-    .PostStream{
-        .PostStream-item{ 
-            &:nth-of-type(1){
-                .Post{
-                    background:#feffe8;
-                    padding-top:10px;
-                    padding-left:20px;
-                    .PostUser-avatar{
-                        display:none;
-                    }
-                    .PostUser-badges{
-                        display:none;
+
+    .DiscussionPage-thread{
+        .PostStream{
+            .PostStream-item{ 
+                &:nth-of-type(1){
+                    .Post{
+                        background:#feffe8;
+                        padding-top:10px;
+                        padding-left:20px;
+                        .PostUser{
+                            .PostUser-name{
+                                font-weight:normal;
+                                .a{
+                                    font-weight:normal;
+                                }
+                            }
+                        }
+                        .PostUser-avatar{
+                            display:none;
+                        }
+                        .PostUser-badges{
+                            display:none;
+                        }
                     }
                 }
             }
         }
     }
+    
 }
 
 @media (min-width: 768px){
     .Hero .container{
         padding: 0px 15px 15px;
     }
+    .Hero h1{
+        font-size:1rem;
+    }
+    .Hero-subtitle{
+        font-size:13px;
+    }
+    .TagHero{
+        background:#f5f5f7 !important;
+        margin: -15px -15px 10px;
+        padding:15px 15px 0;
+    }
+    .TagHero .container{
+        padding-bottom:0;
+    }
+    .DiscussionHero .container{
+        width:100%;
+        padding:0;
+    }
     
     .sideNav>ul{
         margin-top: 0px;
     }
+    .UserPage-nav{
+        .Dropdown--select .Dropdown-menu > li > a {
+            padding-left: 25px;
+        
+            .icon {
+                margin-left: -25px;
+            }
+        }
+    }
+    
     .sideNavOffset{
         margin-top:0px;
     }
@@ -69,23 +227,46 @@
     .Post {
         padding-left:85px
     }
-
-    .PostStream{
-        .PostStream-item{ 
-            &:nth-of-type(1){
-                .Post{
-                    padding-top:0;
-                    padding-left:20px;
-                    .PostUser-avatar{
-                        display:none;
-                    }
-                    .PostUser-badges{
-                        display:none;
+    .DiscussionPage-thread{
+        .PostStream{
+            .PostStream-item{ 
+                &:nth-of-type(1){
+                    .Post{
+                        padding-top:0;
+                        padding-left:20px;
+                        .PostUser{
+                            .PostUser-name{
+                                font-weight:normal;
+                                .a{
+                                    font-weight:normal;
+                                }
+                            }
+                        }
+                        .PostUser-avatar{
+                            display:none;
+                        }
+                        .PostUser-badges{
+                            display:none;
+                        }
                     }
                 }
             }
         }
     }
+
+    .DiscussionListItem-title{
+        font-size:1rem;
+    }
+
+    .DiscussionListItem:hover{
+        background:var(--dev-discussion-hover-bg);
+        border-radius:0;
+    }
+    .DiscussionListItem:hover .DiscussionListItem-title{
+        color:var(--dev-color-green);
+    }
+
+    
 }
 
 @media (max-width: 991.98px){
@@ -99,18 +280,65 @@
         padding:0 0 15px;
         width:100%;
     }
+    .TagHero .container{
+        padding-bottom:0;
+    }
     .IndexPage .WelcomeHero .container , .TagsPage .WelcomeHero .container {
         padding: 0 15px 15px;
         width:768px;
     }
     .IndexPage .IndexPage-results .WelcomeHero .container {
+        width:100%;
         padding: 0 0px 15px;
+    }
+    .sideNav{
+        margin-left:0;
+    }
+    .UserPage-nav{
+        margin-right:0;
+    }
+}
+@media (min-width: 992px) {
+    .Composer:not(.fullScreen){
+        margin-left:0;
+        margin-right:240px;
+    }
+
+    .UserPage{
+        .UserCard{
+            .container{
+                width:800px;
+                padding:0 0 15px;
+            }
+        }
+        
+        .sideNavContainer{
+            display:block;
+            width:800px;
+            margin:0 auto;
+        }
+    }
+    .UserPage-nav{
+        width:100%;
+        margin-right:0;
+        padding: 15px 0px;
+    }
+    .UserPage-nav>ul{
+        width:100%;
+    }
+    .UserPage-nav>ul>li, .UserPage-nav .Dropdown-menu>li{
+        display: inline-block;
+        margin: 0 20px 0 0;
+        vertical-align: top;
     }
 }
 @media (min-width: 992px) and (max-width: 1099.98px) {
     .WelcomeHero .container,.TagHero .container{
         padding:0 0 15px;
         width:100%;
+    }
+    .TagHero .container{
+        padding-bottom:0;
     }
     .IndexPage .WelcomeHero .container , .TagsPage .WelcomeHero .container {
         padding: 0 15px 15px;
@@ -127,6 +355,9 @@
         padding:0 0 15px;
         width:100%;
     }
+    .TagHero .container{
+        padding-bottom:0;
+    }
     .IndexPage .WelcomeHero .container , .TagsPage .WelcomeHero .container {
         padding: 0 15px 15px;
         width:1100px
@@ -139,20 +370,3 @@
 
 
 
-.DiscussionHero .TagsLabel .TagLabel.colored, .DiscussionHero .TagsLabel .TagLabel--colored{
-    background: rgba(150,150,150,0.2);
-}
-.DiscussionHero--colored,.DiscussionHero--colored a{
-    color:#232323;
-}
-
-.containerNarrow{
-    max-width:100%;
-}
-
-.UserPage .UserCard .darkenBackground{
-    background:transparent !important;
-    border-bottom: 1px solid #eee;
-    padding-bottom:15px;
-    margin-bottom: 20px;
-}

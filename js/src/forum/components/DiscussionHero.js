@@ -14,7 +14,7 @@ export default class DiscussionHero extends Component {
     return (
       <header className="Hero DiscussionHero">
         <div className="container">
-          <ul className="DiscussionHero-items">dd{listItems(this.items().toArray())}</ul>
+          <ul className="DiscussionHero-items">{listItems(this.items().toArray())}</ul>
         </div>
       </header>
     );

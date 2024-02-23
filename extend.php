@@ -12,6 +12,6 @@ return [
 
   // new Extend\Locales(__DIR__ . '/locale'),
 
-  (new Extend\ApiController(ShowDiscussionController::class))
-        ->addInclude('firstPost'),
+  // (new Extend\ApiController(ShowDiscussionController::class))
+  //       ->addInclude('firstPost'),
 ];

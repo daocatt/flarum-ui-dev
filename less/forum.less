@@ -208,6 +208,7 @@ body{
         margin-top: 0px;
     }
     .UserPage-nav{
+        z-index:999;
         .Dropdown--select .Dropdown-menu > li > a {
             padding-left: 25px;
         
@@ -297,6 +298,9 @@ body{
     }
     .UserPage-nav{
         margin-right:0;
+        > ul{
+            background:var(--dev-body-bg);
+        }
     }
 }
 @media (min-width: 992px) {
@@ -326,6 +330,7 @@ body{
     }
     .UserPage-nav>ul{
         width:100%;
+        position: static;
     }
     .UserPage-nav>ul>li, .UserPage-nav .Dropdown-menu>li{
         display: inline-block;

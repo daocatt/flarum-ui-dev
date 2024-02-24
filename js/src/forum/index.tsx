@@ -12,9 +12,6 @@ import DiscussionPage from 'flarum/forum/components/DiscussionPage';
 // import DiscussionHero from 'flarum/forum/components/DiscussionHero';
 import DiscussionList from 'flarum/forum/components/DiscussionList';
 import PostStream from 'flarum/forum/components/PostStream';
-import PostFirstStream from './components/PostFirstStream';
-import PostOnlyStream from './components/PostOnlyStream';
-
 
 app.initializers.add('gtdxyz-ui-dev', (app) => {
 
@@ -74,7 +71,6 @@ app.initializers.add('gtdxyz-ui-dev', (app) => {
                 <div className="DiscussionPage-stream">
                 <div className="DiscussionPage-thread">
                     {this.hero()}
-                    {/* <PostFirstStream discussion={this.discussion} stream={this.stream} onPositionChange={this.positionChanged.bind(this)} />     */}
                 </div>
                 <div className="DiscussionPage-comments">
                     <PostStream discussion={this.discussion} stream={this.stream} onPositionChange={this.positionChanged.bind(this)} />

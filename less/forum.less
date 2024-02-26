@@ -49,6 +49,20 @@ body{
 .TagsPage .sideNav{
     margin-left:0;
 }
+.TagsLabel{
+    .TagLabel{
+        &:first-child{
+            border-radius:2px 0 0 2px
+        }
+        &:last-child{
+            border-radius:0 2px 2px 0;
+        }
+        &:first-child:last-child{
+            border-radius: 2px;
+        }
+        
+    }
+}
 
 .DiscussionHero .TagsLabel .TagLabel.colored, .DiscussionHero .TagsLabel .TagLabel--colored{
     background: rgba(150,150,150,0.2);

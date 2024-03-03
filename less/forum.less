@@ -1,17 +1,27 @@
 :root{
-    --dev-body-bg:#e5e5e5;
-    --dev-box-bg:#ffffff;
-    --dev-box-border-radius: 2px;
-    --dev-box-border-color:rgba(225,225,225,1);
+    --dev-body-bg:@dev-body-bg;
+    --dev-box-bg:@dev-box-bg;
+    --dev-box-border-radius: @dev-box-border-radius;
+    --dev-box-border-color:@dev-box-border-color;
 
+    --dev-underline-color: @dev-underline-color;
+    --dev-modal-bg-color: @dev-modal-bg-color;
+
+    --dev-text-primary-color: @dev-text-primary-color;
+    
     --dev-color-green: #3dac78;
-    --dev-discussion-hover-bg: #f8f8f6;
+    --dev-discussion-hover-bg: @dev-discussion-hover-bg;
 
-    --overlay-bg: #e0ddc6;
+    --dev-label-bg-color: @dev-label-bg-color;
+    --dev-taghero-bg-color: @dev-taghero-bg-color;
+    --dev-taghero-text-color: @dev-taghero-text-color;
+
+    --overlay-bg: #c9d6eacd;
 }
 
 body{
     background: var(--dev-body-bg);
+    font-family: -apple-system, BlinkMacSystemFont, Avenir, "Avenir Next", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 .App-content{
     padding-top:15px;
@@ -36,7 +46,7 @@ body{
     background: var(--dev-box-bg);
     border-radius: var(--dev-box-border-radius);
     box-shadow: 0 2px 3px rgba(0,0,0,.1);
-    border-bottom: 1px solid var(--dev-box-border-color);
+    border-bottom: 1px solid var(--dev-underline-color);
     padding:15px 15px;
     min-height:500px;
 }
@@ -70,10 +80,10 @@ body{
 }
 
 .DiscussionHero .TagsLabel .TagLabel.colored, .DiscussionHero .TagsLabel .TagLabel--colored{
-    background: rgba(150,150,150,0.2);
+    background: var(--dev-label-bg-color);
 }
 .DiscussionHero--colored,.DiscussionHero--colored a{
-    color:#232323;
+    color:var(--dev-text-primary-color);
 }
 
 .containerNarrow{
@@ -81,7 +91,7 @@ body{
 }
 
 .DiscussionListItem .DiscussionListItem-content{
-    border-bottom:1px solid #eee;
+    border-bottom:1px solid var(--dev-underline-color);
 }
 
 .DiscussionListItem:hover .DiscussionListItem-title{
@@ -96,19 +106,19 @@ body{
 }
 
 .DiscussionPage-thread{
-    background:#fff;
+    background: var(--dev-box-bg);
     border-radius: var(--dev-box-border-radius);
     box-shadow: 0 2px 3px rgba(0,0,0,.1);
-    border-bottom: 1px solid var(--dev-box-border-color);
+    border-bottom: 1px solid var(--dev-underline-color);
     padding:15px 15px;
     margin-bottom:15px;
 }
 
 .DiscussionPage-comments{
-    background:#fff;
+    background: var(--dev-box-bg);
     border-radius: var(--dev-box-border-radius);
     box-shadow: 0 2px 3px rgba(0,0,0,.1);
-    border-bottom: 1px solid var(--dev-box-border-color);
+    border-bottom: 1px solid var(--dev-underline-color);
     padding:15px 15px;
 }
 
@@ -124,7 +134,7 @@ body{
             background:#ffffff !important;
             border-radius: var(--dev-box-border-radius);
             box-shadow: 0 2px 3px rgba(0,0,0,.1);
-            border-bottom: 1px solid var(--dev-box-border-color);
+            border-bottom: 1px solid var(--dev-underline-color;
             padding:15px 15px;
             color:#232323;
         }
@@ -140,24 +150,24 @@ body{
         background:#ffffff !important;
         border-radius: var(--dev-box-border-radius);
         box-shadow: 0 2px 3px rgba(0,0,0,.1);
-        border-bottom: 1px solid var(--dev-box-border-color);
+        border-bottom: 1px solid var(--dev-underline-color);
         padding:15px 15px;
         >li{
-            border-bottom:1px solid #eee;
+            border-bottom:1px solid var(--dev-underline-color);
         }
     }
     .DiscussionsUserPage{
         background:#ffffff !important;
         border-radius: var(--dev-box-border-radius);
         box-shadow: 0 2px 3px rgba(0,0,0,.1);
-        border-bottom: 1px solid var(--dev-box-border-color);
+        border-bottom: 1px solid var(--dev-underline-color);
         padding:15px 15px;
     }
     .SignaturePage{
         background:#ffffff !important;
         border-radius: var(--dev-box-border-radius);
         box-shadow: 0 2px 3px rgba(0,0,0,.1);
-        border-bottom: 1px solid var(--dev-box-border-color);
+        border-bottom: 1px solid var(--dev-underline-color);
         padding:15px 15px;
         .Signature-content{
             margin-top:15px;
@@ -181,7 +191,7 @@ body{
 }
 
 .Modal-body{
-    background-color: #f0eae2;
+    background-color: var(--dev-modal-bg-color);
     color: #7b6948;
 }
 
@@ -189,7 +199,7 @@ body{
     background:#ffffff !important;
     border-radius: var(--dev-box-border-radius);
     box-shadow: 0 2px 3px rgba(0,0,0,.1);
-    border-bottom: 1px solid var(--dev-box-border-color);
+    border-bottom: 1px solid var(--dev-underline-color);
     padding:15px 15px;
 }
 
@@ -216,6 +226,13 @@ body{
     .WelcomeHero .container,.TagHero .container{
         padding: 0 0 15px;
         width:100%;
+    }
+    .TagHero{
+        background:var(--dev-taghero-bg-color) !important;
+        color: var(--dev-taghero-text-color);
+        margin: -15px -15px 10px;
+        padding:15px 15px 0;
+        border-bottom: 1px solid var(--dev-underline-color);
     }
 
     .sideNavOffset{
@@ -269,10 +286,11 @@ body{
         font-size:13px;
     }
     .TagHero{
-        background:#f5f5f7 !important;
+        background:var(--dev-taghero-bg-color) !important;
+        color: var(--dev-taghero-text-color);
         margin: -15px -15px 10px;
         padding:15px 15px 0;
-        border-bottom: 1px solid #e5e5e5;
+        border-bottom: 1px solid var(--dev-underline-color);
     }
     .TagHero .container{
         padding-bottom:10px;

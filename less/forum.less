@@ -1,3 +1,4 @@
+
 :root{
     --dev-body-bg:@dev-body-bg;
     --dev-box-bg:@dev-box-bg;
@@ -118,15 +119,38 @@ body{
 }
 
 .DiscussionPage-thread{
+    position:relative;
+    margin-bottom:-10px;
+    
     .Hero{
         margin-bottom:0;
     }
     .item-title{
-        background: var(--dev-box-bg);
+        position: relative;
+        &::before{
+            display: inline-block;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            line-height: 1;
+            font-family:'Font Awesome 5 Free';
+            font-weight:900;
+            content: "\f10e";
+            position:absolute;
+            right:5px;
+            top:5px;
+            font-size:6rem;
+            color:rgba(200,200,200,0.2);
+        }
+
+        background: var(--dev-taghero-bg-color);
         border-radius: var(--dev-box-border-radius);
-        box-shadow: 0 2px 3px rgba(0,0,0,.1);
-        border-bottom: 1px solid var(--dev-underline-color);
+        box-shadow: 0 -1px 3px rgba(0,0,0,.1);
+        border-bottom: 1px solid #eee;
         padding:15px 15px;
+        
     }
     
 }

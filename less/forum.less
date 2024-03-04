@@ -17,6 +17,7 @@
     --dev-taghero-text-color: @dev-taghero-text-color;
 
     --overlay-bg: #c9d6eacd;
+    --heading-color: #534b4a;
 }
 
 body{
@@ -96,6 +97,9 @@ body{
 
 .DiscussionListItem:hover .DiscussionListItem-title{
     color:var(--dev-color-green);
+}
+.DiscussionList:not(.DiscussionList--searchResults) .unread .DiscussionListItem-title{
+    font-weight:400;
 }
 .DiscussionList:not(.DiscussionList--searchResults) .DiscussionListItem:hover .read .DiscussionListItem-title{
     color:var(--dev-color-green);
@@ -364,6 +368,7 @@ body{
     }
 
     .DiscussionListItem-title{
+        color:var(--heading-color);
         font-size:1rem;
     }
 

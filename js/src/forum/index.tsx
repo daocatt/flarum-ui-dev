@@ -15,75 +15,67 @@ import PostStream from 'flarum/forum/components/PostStream';
 
 app.initializers.add('gtdxyz-ui-dev', (app) => {
 
-    override(IndexPage.prototype, 'view', function (this: IndexPage, originalFunc: () => Mithril.Children): Mithril.Children {
-        this.view = function() {
-            return (
-                <div className="IndexPage">
-                  
-                  <div className="container">
-                    <div className="sideNavContainer">
-                      <nav className="IndexPage-nav sideNav">
-                        <ul>{listItems(this.sidebarItems().toArray())}</ul>
-                      </nav>
-                      <div className="IndexPage-results sideNavOffset">
-                        {this.hero()}
-                        <div className="IndexPage-content">
-                            <div className="IndexPage-toolbar">
-                            <ul className="IndexPage-toolbar-view">{listItems(this.viewItems().toArray())}</ul>
-                            <ul className="IndexPage-toolbar-action">{listItems(this.actionItems().toArray())}</ul>
-                            </div>
-                            <DiscussionList state={app.discussions} />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
+    extend(IndexPage.prototype, 'view', function (this: IndexPage, originalFunc: () => Mithril.Children): Mithril.Children {
+      
+      if(document.getElementsByClassName('IndexPage').length > 0){
+        if($(document.getElementsByClassName('IndexPage')[0].firstElementChild).length > 0)
+        {
+          // var firstDiv = document.getElementsByClassName('IndexPage')[0].firstElementChild;
+          // if($(firstDiv).attr('class')?.indexOf('Hero') !== -1 ){
+          //   $(firstDiv).remove();
+          // }
+          // if( $(firstDiv).children('.Hero').length>0 ){
+          //   $(firstDiv).children('.Hero')[0]?.remove();
+          // }
+          m.mount(document.getElementsByClassName('IndexPage')[0].firstElementChild,{view:()=>{return ''}});
         }
-        return originalFunc();
+        
+      }
+      
+      if(document.getElementsByClassName('IndexPage-results').length>0){
+        if(document.getElementsByClassName('Hero-insert').length < 1)
+        {
+          m.mount($('<div class="Hero-insert"/>').insertBefore('.IndexPage-toolbar')[0], {
+            view: () => (
+              this.hero()
+            ),
+          });
+          
+        }
+        
+      }
+      
+      if(app.current.get('routeName')==='index' || app.current.get('routeName')==='tag'){
+        m.redraw();
+      }
     });
+    
 
     extend(DiscussionPage.prototype, 'sidebarItems', function (items) {
         items.remove('scrubber');
     });
 
-    override(DiscussionPage.prototype, 'view', function (this: DiscussionPage, originalFunc: () => Mithril.Children): Mithril.Children {
-
-        this.pageContent = function(): ItemList<Mithril.Children> {
-            const items = new ItemList<Mithril.Children>();
-        
-            // items.add('hero', this.hero(), 100);
-            items.add('main', <div className="container">{this.mainContent().toArray()}</div>, 10);
-        
-            return items;
+    extend(DiscussionPage.prototype, 'view', function (this: DiscussionPage, originalFunc: () => Mithril.Children): Mithril.Children {
+      if(document.getElementsByClassName('DiscussionPage-discussion').length > 0)
+      {
+        if($(document.getElementsByClassName('DiscussionPage-discussion')[0].firstElementChild)?.attr('class').indexOf('Hero') !== -1 ){
+          // $(document.getElementsByClassName('DiscussionPage-discussion')[0].firstElementChild)?.remove();
+          m.mount(document.getElementsByClassName('DiscussionPage-discussion')[0].firstElementChild,{view:()=>{return ''}});
         }
+      }
 
-        /**
-         * List of items rendered inside the main page content container.
-         * <div className="DiscussionPage-thread-body">{m.trust(this.discussion.firstPost().contentHtml())}</div>
-         */
-        this.mainContent = function(): ItemList<Mithril.Children> {
-            const items = new ItemList<Mithril.Children>();
-        
-            items.add('sidebar', this.sidebar(), 100);
-            items.add(
-                'poststream',
-                <div className="DiscussionPage-stream">
-                <div className="DiscussionPage-thread">
-                    {this.hero()}
-                </div>
-                <div className="DiscussionPage-comments">
-                    <PostStream discussion={this.discussion} stream={this.stream} onPositionChange={this.positionChanged.bind(this)} />
-                </div>
-                </div>,
-                10
-            );
-        
-            return items;
+      if(document.getElementsByClassName('PostStream').length>0){
+        if(document.getElementsByClassName('DiscussionPage-thread').length < 1){
+          m.mount($('<div class="DiscussionPage-thread"/>').insertBefore('.PostStream')[0], {
+            view: () => (
+              this.hero()
+            ),
+          });
         }
-
-        return originalFunc();
+      }
     });
+
+    
 
     
 });

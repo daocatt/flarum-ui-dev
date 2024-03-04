@@ -19,7 +19,9 @@
     --overlay-bg: #c9d6eacd;
     --heading-color: #534b4a;
 }
-
+html {
+    font-size:14px;
+}
 body{
     background: var(--dev-body-bg);
     font-family: -apple-system, BlinkMacSystemFont, Avenir, "Avenir Next", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -91,6 +93,12 @@ body{
     max-width:100%;
 }
 
+.DiscussionPage-discussion{
+    > .DiscussionHero{
+        display:none;
+    }
+}
+
 .DiscussionListItem .DiscussionListItem-content{
     border-bottom:1px solid var(--dev-underline-color);
 }
@@ -110,15 +118,20 @@ body{
 }
 
 .DiscussionPage-thread{
-    background: var(--dev-box-bg);
-    border-radius: var(--dev-box-border-radius);
-    box-shadow: 0 2px 3px rgba(0,0,0,.1);
-    border-bottom: 1px solid var(--dev-underline-color);
-    padding:15px 15px;
-    margin-bottom:15px;
+    .Hero{
+        margin-bottom:0;
+    }
+    .item-title{
+        background: var(--dev-box-bg);
+        border-radius: var(--dev-box-border-radius);
+        box-shadow: 0 2px 3px rgba(0,0,0,.1);
+        border-bottom: 1px solid var(--dev-underline-color);
+        padding:15px 15px;
+    }
+    
 }
 
-.DiscussionPage-comments{
+.PostStream{
     background: var(--dev-box-bg);
     border-radius: var(--dev-box-border-radius);
     box-shadow: 0 2px 3px rgba(0,0,0,.1);
@@ -186,7 +199,14 @@ body{
     .Signature{
         font-size:12px;
         color:#999 !important;
-        border-top:1px dashed #c7a25c;
+        background:url('extensions/gtdxyz-ui-dev/images/icon/bio.png') left top no-repeat;
+        padding-top:20px;
+        .Signature-content{
+            border-top:1px dashed #40C057;
+            p{
+                margin-bottom:0;
+            }
+        }
         a{
             color:#999 !important;
         }
@@ -242,7 +262,14 @@ body{
     .sideNavOffset{
         margin-top:0px;
     }
-
+    .DiscussionHero .container
+    {
+        padding-left:0;
+        padding-right:0;
+    }
+    .DiscussionPage-thread .item-title{
+        margin-bottom:10px;
+    }
     .DiscussionPage-thread{
         .PostStream{
             .PostStream-item{ 
@@ -282,7 +309,7 @@ body{
 
     .IndexPage{
         .Hero{
-            display:none;
+            // display:none;
         }
         .sideNavContainer{
             .Hero{
@@ -295,10 +322,10 @@ body{
         padding: 0px 15px 15px;
     }
     .Hero h1{
-        font-size:1rem;
+        font-size:1.2rem;
     }
     .Hero-subtitle{
-        font-size:13px;
+        font-size:12px;
     }
     .TagHero{
         background:var(--dev-taghero-bg-color) !important;

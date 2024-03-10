@@ -85,6 +85,8 @@ body{
 
 .DiscussionHero .TagsLabel .TagLabel.colored, .DiscussionHero .TagsLabel .TagLabel--colored{
     background: var(--dev-label-bg-color);
+    border-radius: 50px !important;
+    font-weight: normal;
 }
 .DiscussionHero--colored,.DiscussionHero--colored a{
     color:var(--dev-text-primary-color);
@@ -330,7 +332,13 @@ body{
 }
 
 @media (min-width: 768px){
-
+    .Header-secondary{
+        .ButtonGroup{
+            &.Dropdown{
+                padding:0 5px;
+            }
+        }
+    }
     .IndexPage{
         .Hero{
             // display:none;

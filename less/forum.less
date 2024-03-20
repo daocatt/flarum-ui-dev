@@ -248,6 +248,20 @@ body{
     color: #7b6948;
 }
 
+.NotificationGroup{
+    border-top:1px solid #ddd;
+}
+.NotificationGroup:not(:last-child){
+    margin-bottom:0;
+}
+.NotificationGroup-header, .NotificationGroup-header span{
+    display:none;
+}
+.Notification.unread{
+    background:transparent;
+    color: #ff6e00 !important;
+}
+
 .money-history-list{
     background:#ffffff !important;
     border-radius: var(--dev-box-border-radius);

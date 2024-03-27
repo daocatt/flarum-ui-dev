@@ -88,11 +88,35 @@ body{
 
 .DiscussionHero .TagsLabel .TagLabel.colored, .DiscussionHero .TagsLabel .TagLabel--colored{
     background: var(--dev-label-bg-color);
-    border-radius: 50px !important;
+    border-radius: 2px;
     font-weight: normal;
+    margin-bottom:5px;
 }
 .DiscussionHero--colored,.DiscussionHero--colored a{
     color:var(--dev-text-primary-color);
+}
+
+.DiscussionHero{
+    .item-title{
+        position: relative;
+        &::before{
+            display: inline-block;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            line-height: 1;
+            font-family:'Font Awesome 5 Free';
+            font-weight:900;
+            content: "\f10e";
+            position:absolute;
+            right:5px;
+            top:5px;
+            font-size:6rem;
+            color:rgba(200,200,200,0.2);
+        }
+    }
 }
 
 .containerNarrow{
@@ -101,7 +125,7 @@ body{
 
 .DiscussionPage-discussion{
     > .DiscussionHero{
-        display:none;
+        // display:none;
     }
 }
 
@@ -290,15 +314,16 @@ body{
         font-size:16px;
     }
     .container{
-        padding-left:5px;
-        padding-right:5px;
+        padding-left:15px;
+        padding-right:15px;
     }
     .Hero .container{
         padding-top: 0px;
         padding-bottom: 0px;
         
     }
-    .WelcomeHero .container,.TagHero .container{
+    .WelcomeHero .container,
+    .TagHero .container{
         padding: 0 0 15px;
         width:100%;
     }
@@ -313,11 +338,7 @@ body{
     .sideNavOffset{
         margin-top:0px;
     }
-    .DiscussionHero .container
-    {
-        padding-left:0;
-        padding-right:0;
-    }
+    
     .DiscussionPage-thread .item-title{
         margin-bottom:10px;
     }
@@ -349,6 +370,21 @@ body{
             }
         }
     }
+
+    .DiscussionHero{
+        .container{
+            .DiscussionHero-items{
+                margin-top:10px;
+                background: var(--dev-box-bg);
+                border-radius: var(--dev-box-border-radius);
+                box-shadow: 0 2px 3px rgba(0,0,0,.1);
+                border-bottom: 1px solid var(--dev-underline-color);
+                padding:15px 15px;
+            }
+            
+        }
+    }
+
     .DiscussionPage-nav{
         border-bottom:none;
     }
@@ -462,6 +498,37 @@ body{
         }
     }
 
+    .DiscussionHero{
+        margin-bottom:0;
+        padding-bottom:0;
+    }
+    .PostStream{
+        margin-top:0;
+    }
+    .DiscussionHero-items{
+        display: grid;
+        grid-gap: 75px;
+        grid-template-columns: 1fr 150px;
+        grid-template-areas: 'stream nav';
+
+        .item-tags{
+            align-self: start;
+            position: sticky;
+            grid-area: nav;
+            top: var(--header-height);
+            /* padding-top: 32px; */
+            z-index: 1;
+        }
+        .item-title{
+            margin-top:0;
+            background: var(--dev-box-bg);
+            border-radius: var(--dev-box-border-radius) var(--dev-box-border-radius) 0 0;
+            box-shadow: 0 2px -3px rgba(0,0,0,.1);
+            border-bottom: 1px solid var(--dev-underline-color);
+            padding:15px 15px;
+        }
+    }
+
     .DiscussionListItem-title{
         color:var(--heading-color);
         font-size:1rem;
@@ -473,6 +540,10 @@ body{
     }
     .DiscussionListItem:hover .DiscussionListItem-title{
         color:var(--dev-color-green);
+    }
+
+    .DiscussionPage-nav{
+        padding-top:0px;
     }
 
     .Modal-header{
@@ -491,9 +562,14 @@ body{
     .sideNavOffset{
         margin-top:10px;
     }
-    .IndexPage .WelcomeHero .container , .TagsPage .WelcomeHero .container {
+    .IndexPage .WelcomeHero .container ,
+    .TagsPage .WelcomeHero .container,
+    .DiscussionPage .DiscussionHero .container {
         padding: 0 15px 15px;
         width:768px;
+    }
+    .DiscussionPage .DiscussionHero .container{
+        padding-bottom:0;
     }
     .IndexPage .IndexPage-results .WelcomeHero .container {
         width:100%;
@@ -552,9 +628,14 @@ body{
     .TagHero .container{
         padding-bottom:10px;
     }
-    .IndexPage .WelcomeHero .container , .TagsPage .WelcomeHero .container {
+    .IndexPage .WelcomeHero .container ,
+    .TagsPage .WelcomeHero .container,
+    .DiscussionPage .DiscussionHero .container {
         padding: 0 15px 15px;
         width:992px
+    }
+    .DiscussionPage .DiscussionHero .container{
+        padding-bottom:0
     }
     .IndexPage .IndexPage-results .WelcomeHero .container {
         padding: 0 0px 15px;
@@ -570,9 +651,14 @@ body{
     .TagHero .container{
         padding-bottom:10px;
     }
-    .IndexPage .WelcomeHero .container , .TagsPage .WelcomeHero .container {
+    .IndexPage .WelcomeHero .container ,
+    .TagsPage .WelcomeHero .container,
+    .DiscussionPage .DiscussionHero .container {
         padding: 0 15px 15px;
         width:1100px
+    }
+    .DiscussionPage .DiscussionHero .container{
+        padding-bottom:0
     }
     .IndexPage .IndexPage-results .WelcomeHero .container {
         padding: 0 0px 15px;

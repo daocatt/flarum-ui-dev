@@ -7,11 +7,7 @@ import type * as Mithril from 'mithril';
 
 // import Tag from 'flarum/tags/common/models/Tag';
 import IndexPage from 'flarum/forum/components/IndexPage';
-import DiscussionPage from 'flarum/forum/components/DiscussionPage';
 // import WelcomeHero from 'flarum/forum/components/WelcomeHero';
-// import DiscussionHero from 'flarum/forum/components/DiscussionHero';
-import DiscussionList from 'flarum/forum/components/DiscussionList';
-import PostStream from 'flarum/forum/components/PostStream';
 
 app.initializers.add('gtdxyz-ui-dev', (app) => {
 
@@ -49,34 +45,6 @@ app.initializers.add('gtdxyz-ui-dev', (app) => {
         m.redraw();
       }
     });
-    
 
-    extend(DiscussionPage.prototype, 'sidebarItems', function (items) {
-        items.remove('scrubber');
-    });
-
-    extend(DiscussionPage.prototype, 'view', function (this: DiscussionPage, originalFunc: () => Mithril.Children): Mithril.Children {
-      if(document.getElementsByClassName('DiscussionPage-discussion').length > 0)
-      {
-        if($(document.getElementsByClassName('DiscussionPage-discussion')[0].firstElementChild)?.attr('class').indexOf('Hero') !== -1 ){
-          // $(document.getElementsByClassName('DiscussionPage-discussion')[0].firstElementChild)?.remove();
-          m.mount(document.getElementsByClassName('DiscussionPage-discussion')[0].firstElementChild,{view:()=>{return ''}});
-        }
-      }
-
-      if(document.getElementsByClassName('PostStream').length>0){
-        if(document.getElementsByClassName('DiscussionPage-thread').length < 1){
-          m.mount($('<div class="DiscussionPage-thread"/>').insertBefore('.PostStream')[0], {
-            view: () => (
-              this.hero()
-            ),
-          });
-        }
-      }
-    });
-
-    
-
-    
 });
 
